@@ -2,7 +2,7 @@ function updateTheme(isDark) {
 	document.documentElement.className = "theme-" + (isDark ? "graphite" : "platinum");
 	let gallery = document.querySelector("#icon-gallery");
 	if(gallery != undefined) {
-		gallery.src = "/bot/assets/index/icons-" + (isDark ? "dark" : "light") + ".svg";
+		gallery.src = "/assets/index/icons-" + (isDark ? "dark" : "light") + ".svg";
 	}
 }
 

@@ -37,7 +37,7 @@ const VERSION = "1.1";
 
 const INPUT_ICON_COLOURS = ICON_COLOURS.platinum;
 
-const ICONSET_URL = "/bot/iconset/iconset.svg";
+const ICONSET_URL = "/iconset/iconset.svg";
 const ICON_SIZE_PX = 16;
 const PREVIEW_ICON_PADDING = 4;
 
