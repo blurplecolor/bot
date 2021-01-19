@@ -37,7 +37,7 @@ const VERSION = "1.1";
 
 const INPUT_ICON_COLOURS = ICON_COLOURS.platinum;
 
-const ICONSET_URL = "/Vanilla/iconset/iconset.svg";
+const ICONSET_URL = "/bot/iconset/iconset.svg";
 const ICON_SIZE_PX = 16;
 const PREVIEW_ICON_PADDING = 4;
 
@@ -146,7 +146,7 @@ function colouriseBuffer(context, iconSize, gridWidth, gridSpacing) {
 					let pixelRed = pixels[index];
 					let pixelGreen = pixels[index + 1];
 					let pixelBlue = pixels[index + 2];
-					
+
 					let closestColour = null;
 					let closestDistance = null;
 
@@ -156,7 +156,7 @@ function colouriseBuffer(context, iconSize, gridWidth, gridSpacing) {
 							Math.abs(pixelRed - colour.r) +
 							Math.abs(pixelGreen - colour.g) +
 							Math.abs(pixelBlue - colour.b);
-						
+
 						if(closestColour == null || distance < closestDistance) {
 							closestColour = colourName;
 							closestDistance = distance;
@@ -219,11 +219,11 @@ function renderPreviewBuffer(previewLayout) {
 			let gridX = iconIndex % previewGridWidth;
 			let gridY = Math.floor(iconIndex / previewGridWidth);
 
-			previewBufferContext.drawImage(iconsetImage, 
-				iconIndex * ICON_SIZE_PX, 0, 
-				ICON_SIZE_PX, ICON_SIZE_PX, 
+			previewBufferContext.drawImage(iconsetImage,
+				iconIndex * ICON_SIZE_PX, 0,
+				ICON_SIZE_PX, ICON_SIZE_PX,
 
-				gridX*previewGridSpacing, gridY*previewGridSpacing, 
+				gridX*previewGridSpacing, gridY*previewGridSpacing,
 				previewIconSize, previewIconSize
 			);
 		}
@@ -279,13 +279,13 @@ function render() {
 		if(iconsetIsLoaded) {
 			let previewLayout = computePreviewLayout(width, height);
 
-			if(lastPreviewLayout == null 
+			if(lastPreviewLayout == null
 				|| lastPreviewLayout.scale != previewLayout.scale
 				|| lastPreviewLayout.extents.width != previewLayout.extents.width
 				|| lastPreviewLayout.extents.height != previewLayout.extents.height
-				
+
 				|| lastStyle == null || lastStyle != currentStyle
-				
+
 				|| lastTheme == null || lastTheme != currentTheme) {
 					renderPreviewBuffer(previewLayout);
 
@@ -307,14 +307,14 @@ function render() {
 
 let exportIconBlobContext = document.createElement("canvas").getContext("2d");
 let exportDownloadLink = document.createElement("a");
-exportDownloadLink.download = "VanillaIcons-" + VERSION + ".zip";
+exportDownloadLink.download = "botIcons-" + VERSION + ".zip";
 
 function exportIcons() {
 	showModalDialog('preparing-download');
 	renderExportBuffer();
 
 	let iconPromises = [];
-	
+
 	exportIconBlobContext.canvas.width = ICON_SIZE_PX;
 	exportIconBlobContext.canvas.height = ICON_SIZE_PX;
 
